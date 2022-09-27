@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Upwind.mp3-d928aaddd59bcf6a8fa8b0eb61df6bea.mp3str"
+
+[deps]
+
+source_file="res://Upwind.mp3"
+dest_files=[ "res://.import/Upwind.mp3-d928aaddd59bcf6a8fa8b0eb61df6bea.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

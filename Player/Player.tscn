@@ -16,7 +16,10 @@ script = ExtResource( 1 )
 wait_time = 0.1
 one_shot = true
 
-[node name="Hitbox" type="Area2D" parent="."]
+[node name="Power_up_cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hitbox" type="Area2D" parent="." groups=["Player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 visible = false
@@ -24,4 +27,5 @@ position = Vector2( 2.38419e-07, -2.38419e-07 )
 shape = SubResource( 1 )
 
 [connection signal="timeout" from="Reload_speed" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Power_up_cooldown" to="." method="_on_Power_up_cooldown_timeout"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_Hitbox_area_entered"]

@@ -7,6 +7,7 @@ var stun = false
 export(int) var hp = 3
 export(int) var knockback = 600
 export(int) var screen_shake = 60
+export(int) var point_value = 10
 
 onready var current_colour = modulate
 
@@ -21,6 +22,7 @@ func _process(_delta):
 		if Global.node_creation_parent != null:
 			var blood_particle_instance = Global.instance_node(blood_particels, global_position, Global.node_creation_parent)
 			blood_particle_instance.rotation = velocity.angle()
+			blood_particle_instance.modulate = Color.from_hsv(current_colour.h, 0.75, current_colour.v)
 		queue_free()
 
 
@@ -36,7 +38,7 @@ func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Enemy_damage") and stun == false:
 		modulate = Color.white
 		velocity = -velocity * knockback
-		hp -= 1
+		hp -= area.get_parent().damage
 		stun = true
 		$Stun_timer.start()
 		area.get_parent().queue_free()
