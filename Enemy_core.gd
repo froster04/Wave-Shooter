@@ -18,7 +18,7 @@ func _process(_delta):
 		if Global.camera != null:
 			Global.camera.screen_shake(screen_shake, 0.2)
 		
-		Global.points += 10
+		Global.points += point_value
 		if Global.node_creation_parent != null:
 			var blood_particle_instance = Global.instance_node(blood_particels, global_position, Global.node_creation_parent)
 			blood_particle_instance.rotation = velocity.angle()
