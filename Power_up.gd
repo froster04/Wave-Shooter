@@ -5,6 +5,8 @@ export(float) var player_variable_set
 
 export(float) var power_up_cooldown = 2
 
+
+
 func _on_Hitbox_area_entered(area):
 	if area.is_in_group("Player"):
 		area.get_parent().set(player_variable_modify, player_variable_set)

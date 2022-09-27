@@ -8,9 +8,9 @@ func _ready():
 	Global.node_creation_parent = self
 	Global.points = 0
 
-func _process(delta):
-	if Input.is_action_just_pressed("Esc"):
-		get_tree().change_scene("res://MainMenu/MainMenu.tscn")
+#func _process(delta):
+#	if Input.is_action_just_pressed("Esc"):
+#		get_tree().change_scene("res://MainMenu/MainMenu.tscn")
 
 func _exit_tree():
 	Global.node_creation_parent = null

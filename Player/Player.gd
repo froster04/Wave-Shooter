@@ -51,7 +51,8 @@ func _on_Hitbox_area_entered(area):
 		visible = false
 		Global.save_game()
 		yield(get_tree().create_timer(1), "timeout")
-		get_tree().reload_current_scene()
+		#get_tree().reload_current_scene()
+		get_tree().change_scene("res://UI/GameOver.tscn")
 
 
 func _on_Power_up_cooldown_timeout():

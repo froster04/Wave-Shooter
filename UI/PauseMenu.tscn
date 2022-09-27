@@ -1,0 +1,199 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Click.wav" type="AudioStream" id=2]
+[ext_resource path="res://UI/PauseMenu.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 60
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0, 0, 0, 0.490196 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0, 0, 0, 0.686275 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.392157 )
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="Animation" id=7]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_layer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Transition_layer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[node name="PauseMenu" type="Node2D"]
+pause_mode = 2
+visible = false
+script = ExtResource( 3 )
+
+[node name="BG" type="ColorRect" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+rect_rotation = -0.0266117
+color = Color( 0.145098, 0.0941176, 0.203922, 0.392157 )
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+margin_right = 640.0
+margin_bottom = 360.0
+custom_constants/margin_right = 150
+custom_constants/margin_top = 80
+custom_constants/margin_left = 150
+custom_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_left = 150.0
+margin_top = 80.0
+margin_right = 490.0
+margin_bottom = 263.0
+
+[node name="Paused" type="Label" parent="MarginContainer/VBoxContainer"]
+margin_right = 340.0
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+custom_fonts/font = SubResource( 1 )
+text = "Paused"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 68.0
+margin_right = 340.0
+margin_bottom = 183.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_right = 340.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 60
+custom_constants/margin_left = 60
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+margin_left = 60.0
+margin_right = 280.0
+margin_bottom = 35.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Resume"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 340.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 60
+custom_constants/margin_left = 60
+
+[node name="Menu" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+margin_left = 60.0
+margin_right = 280.0
+margin_bottom = 35.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Menu"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 340.0
+margin_bottom = 115.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 60
+custom_constants/margin_left = 60
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+margin_left = 60.0
+margin_right = 280.0
+margin_bottom = 35.0
+focus_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/pressed = SubResource( 4 )
+custom_styles/normal = SubResource( 5 )
+text = "Quit"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/fade_in = SubResource( 7 )
+anims/fade_out = SubResource( 8 )
+
+[node name="Transition_layer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="Transition_layer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 0 )
+
+[node name="Transition_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Scene_change_timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/Resume" to="." method="_on_Resume_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2/Menu" to="." method="_on_Menu_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3/Quit" to="." method="_on_Quit_button_down"]
+[connection signal="timeout" from="Transition_timer" to="." method="_on_Transition_timer_timeout"]
+[connection signal="timeout" from="Scene_change_timer" to="." method="_on_Scene_change_timer_timeout"]
