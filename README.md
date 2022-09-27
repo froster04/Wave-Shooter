@@ -1,6 +1,7 @@
 # Wave-Shooter
 Wave Shooter, no further explanation needed i guess (: 
 
-![image](https://user-images.githubusercontent.com/56665437/192508610-eed7638a-d8c4-4c59-ba66-2ff37078a1a9.png)
+![image](https://user-images.githubusercontent.com/56665437/192508889-24a0da14-e140-487a-9fe3-9018c1ab104b.png)
+
 
 
