@@ -16,6 +16,7 @@ func _on_Resume_button_down():
 func _on_Menu_button_down():
 	get_tree().paused = false
 	fade_animation.play("fade_in")
+	$Click.play()
 	$Scene_change_timer.start()
 
 func _on_Quit_button_down():
