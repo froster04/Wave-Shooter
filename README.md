@@ -1,4 +1,4 @@
-# Wave-Shooter
+# Wave-Shooter (bullets are invisible, why, idk D:)
 Wave Shooter, no further explanation needed i guess (: 
 Movement
 W, S, A, D
